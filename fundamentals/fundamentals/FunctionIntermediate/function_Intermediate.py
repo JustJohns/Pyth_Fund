@@ -2,53 +2,56 @@
 #1.Update Values in Dictionaries and Lists
 #==========================================
 
-# x = [ 
-#         [5,2,3],
-#         [10,8,9] 
-# ]
-# # print (x)
+x = [ 
+        [5,2,3],
+        [10,8,9] 
+]
 
-# students = [
-#     {'first_name':  'Michael', 'last_name' : 'Jordan'},
-#     {'first_name' : 'John', 'last_name' : 'Rosales'}
-# ]
-# sports_directory = {
-#     'basketball' : ['Kobe', 'Jordan', 'James', 'Curry'],
-#     'soccer' : ['Messi', 'Ronaldo', 'Rooney']
-# }
-# z = [ {'x': 10, 'y': 20} ]
+students = [
+    {'first_name':  'Michael', 'last_name' : 'Jordan'},
+    {'first_name' : 'John', 'last_name' : 'Rosales'}
+]
+sports_directory = {
+    'basketball' : ['Kobe', 'Jordan', 'James', 'Curry'],
+    'soccer' : ['Messi', 'Ronaldo', 'Rooney']
+}
+z = [ {'x': 10, 'y': 20} ]
 
 
 # # Change the value 10 in x to 15. Once you're done, x should now be [ [5,2,3], [15,8,9] ].
-# x [1][0]=15
-# print(x)
+x [1][0]=15
+print(x)
 # # Change the last_name of the first student from 'Jordan' to 'Bryant'
-# students[0]['last_name']='Bryant'
-# print(students[0])
+students[0]['last_name']='Bryant'
+print(students[0])
 # # In the sports_directory, change 'Messi' to 'Andres'
-# sports_directory['soccer'][0]='Andres'
-# print(sports_directory['soccer'])
+sports_directory['soccer'][0]='Andres'
+print(sports_directory['soccer'])
 # # Change the value 20 in z to 30
-# z[0]['y']=30
-# print(z)
+z[0]['y']=30
+print(z)
 
 #=======================================================
 #2.Iterate Through a List of Dictionaries
 #=======================================================
 
+# Create a function iterateDictionary(some_list) 
+# that given a list of dictionaries, 
+# the function loops through each dictionary in the list 
+# and prints each key and the associated value. 
+# For example, given the following list:
 
-# students = [
-#         {'first_name':  'Michael', 'last_name' : 'Jordan'},
-#         {'first_name' : 'John', 'last_name' : 'Rosales'},
-#         {'first_name' : 'Mark', 'last_name' : 'Guillen'},
-#         {'first_name' : 'KB', 'last_name' : 'Tonel'}
-#     ]
+students = [
+        {'first_name':  'Michael', 'last_name' : 'Jordan'},
+        {'first_name' : 'John', 'last_name' : 'Rosales'},
+        {'first_name' : 'Mark', 'last_name' : 'Guillen'},
+        {'first_name' : 'KB', 'last_name' : 'Tonel'}
+    ]
 
-# def iterateDictionary(dir):
-#     new_str=""
-#     for i in range(0, len(dir), 1):
-#         print(dir[i])
-# iterateDictionary(students)
+def iterateDictionary(dir):
+    for i in range(0, len(dir), 1):
+        print('first_name' + " - " + dir[i]['first_name'] + ", " + 'last_name' + " - " + dir[i]['last_name'])
+iterateDictionary(students)
 
 # should output: (it's okay if each key-value pair ends up on 2 separate lines;
 # bonus to get them to appear exactly as below!)
@@ -67,17 +70,11 @@
 # the function prints the value stored in that key for each dictionary. 
 # For example, iterateDictionary2('first_name', students) should output:
 
-# students = [
-#         {'first_name':  'Michael', 'last_name' : 'Jordan'},
-#         {'first_name' : 'John', 'last_name' : 'Rosales'},
-#         {'first_name' : 'Mark', 'last_name' : 'Guillen'},
-#         {'first_name' : 'KB', 'last_name' : 'Tonel'}
-#     ]
-
-# def iterateDictionary2(dir):
-#     for i in range(0, len(dir), 1):
-#         print(dir[i]['first_name'])
-# iterateDictionary2(students)
+def iterateDictionary2(key_name,dir):
+    for i in range(0, len(dir), 1):
+        print(dir[i][key_name])
+iterateDictionary2('first_name', students)
+iterateDictionary2('last_name', students)
 
 #=======================================================
 #4.Iterate Through a Dictionary with List Values
@@ -113,6 +110,10 @@ dojo = {
 }
 
 def printInfo(dir):
+    for title in dir:
+        print(len(dir[title]), title)
+        for i in range(len(dir[title])):
+            print(dir[title][i])
 
 printInfo(dojo)
 
